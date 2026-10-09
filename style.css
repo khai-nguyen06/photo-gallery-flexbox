@@ -1,0 +1,75 @@
+/* ==========================================================================
+   2. THIẾT LẬP CSS CHUNG (RESET BOX-SIZING)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #2c3e50;
+    padding: 30px 20px;
+}
+
+.gallery-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* ==========================================================================
+   3. CONTAINER THƯ VIỆN (.gallery-container)
+   ========================================================================== */
+.gallery-container {
+    display: flex;                  /* Kích hoạt mô hình Flexbox */
+    flex-wrap: wrap;                /* Tự động xuống dòng khi không đủ không gian */
+    justify-content: center;        /* Căn giữa các ảnh theo chiều ngang */
+    gap: 16px;                      /* Tạo khoảng cách đồng đều 16px giữa các ảnh */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   4. ITEM ẢNH (.gallery-item) - RESPONSIVE KHÔNG CẦN MEDIA QUERIES
+   ========================================================================== */
+.gallery-item {
+    /* 
+       flex: 1 1 300px;
+       - flex-grow: 1 (Cho phép lớn lên để lấp đầy hàng thừa)
+       - flex-shrink: 1 (Cho phép co lại khi màn hình hẹp)
+       - flex-basis: 300px (Kích thước cơ sở ban đầu 300px)
+    */
+    flex: 1 1 300px;
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    
+    /* Thử thách: Đổ bóng nhẹ tạo độ sâu */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    /* Hiệu ứng chuyển động mượt mà */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ==========================================================================
+   5. ĐỊNH DẠNG HÌNH ẢNH (<img>)
+   ========================================================================== */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;             /* Cắt cúp ảnh thông minh, không làm méo tỉ lệ */
+    display: block;
+}
+
+/* ==========================================================================
+   6. HIỆU ỨNG TƯƠNG TÁC (:hover)
+   ========================================================================== */
+.gallery-item:hover {
+    transform: scale(1.03);        /* Phóng to nhẹ 3% khi rê chuột vào */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
